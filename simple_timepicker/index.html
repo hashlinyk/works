@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="lib/jquery-1.12.2.js"></script>
+	<script src="simple_timepicker.js"></script>
+	<style type="text/css">
+		html,body{
+			height: 300px;
+		}
+		#asd{
+			width:90px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<input class="asd" type="text">
+	<input class="asd" type="text">
+	<script>
+		$(".asd").eq(0).sp_timepicker({
+			width: 110,
+			height: 35,
+			value: '22:10:5',
+			fontSize:20,
+			color: 'red'
+		});
+
+		$(".asd").eq(1).sp_timepicker({
+			width: 80,
+			height: 22,
+			value: '3:18:30'
+		});
+	</script>
+</body>
+</html>
