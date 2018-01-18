@@ -10,4 +10,4 @@
 
 点击查看[项目](https://github.com/PilgrimErick/myCroppa)，点击查看[Demo](http://linyk.me/works/my_croppa/)
 
-![jQuery简单时分秒选择插件Demo图](http://linyk.me/works/demo_pictures/my_croppa.png)
+![jQuery简单时分秒选择插件Demo图](http://linyk.me/works/demo_pictures/my_croppa.jpg)
