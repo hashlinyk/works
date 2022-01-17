@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link href="//vjs.zencdn.net/7.10.2/video-js.min.css" rel="stylesheet" />
+    <script src="//vjs.zencdn.net/7.10.2/video.min.js"></script>
+  </head>
+  <body>
+    <div id="playerBox"></div>
+    <div>
+      <input id="playUrlInput" type="text" placeholder="playurl" style="width: 400px"><button id="play">Play current url</button>
+    </div>
+    <div>
+      <button id="cctv1_hd">play cctv1_hd</button>
+      <button id="cctv1_org">play cctv1_org</button>
+      <button id="cctv2_org">play cctv2_org</button>
+    </div>
+
+    <script>
+      var player
+
+      document.getElementById("play").addEventListener("click", function(){
+        initPlayer(document.getElementById("playUrlInput").value);
+      })
+
+      document.getElementById("cctv1_hd").addEventListener("click", function(){
+        initPlayer('http://linyk.me/works/demo/videoJsPlayer/sources/cctv1_hd.m3u8');
+      })
+
+      document.getElementById("cctv1_org").addEventListener("click", function(){
+        initPlayer('http://linyk.me/works/demo/videoJsPlayer/sources/cctv1_org.m3u8');
+      })
+
+      document.getElementById("cctv2_org").addEventListener("click", function(){
+        initPlayer('http://linyk.me/works/demo/videoJsPlayer/sources/cctv2_org.m3u8');
+      });
+
+      document.getElementById("cctv1_hd").click();
+
+      function initPlayer(src){
+        if(player){
+          player.dispose()
+        }
+
+        document.getElementById("playerBox").innerHTML = `
+          <video
+            id="my-player"
+            class="video-js vjs-big-play-centered"
+            controls
+            preload="auto"
+            width="640"
+            height="264"
+          >
+            <p class="vjs-no-js">
+              To view this video please enable JavaScript, and consider upgrading to a
+              web browser that
+              <a href="https://videojs.com/html5-video-support/" target="_blank"
+                >supports HTML5 video</a
+              >
+            </p>
+          </video>
+        `;
+
+        player = videojs('my-player', {
+          sources: [{
+            src: src,
+            type: 'application/x-mpegURL',
+          }]
+        }, function (){
+          this.play();
+        });
+
+        document.getElementById("playUrlInput").value = src;
+      }
+    </script>
+  </body>
+</html>
